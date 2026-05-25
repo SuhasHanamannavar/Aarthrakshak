@@ -10,6 +10,8 @@ import 'screens/transaction_screen.dart';
 import 'screens/fraud_alert_screen.dart';
 import 'screens/savings_simulator_screen.dart';
 import 'screens/health_score_screen.dart';
+import 'screens/manual_entry_screen.dart';
+import 'screens/statement_upload_screen.dart';
 import 'services/api_service.dart';
 import 'state/app_state.dart';
 
@@ -60,6 +62,8 @@ class AarthrakshakApp extends StatelessWidget {
         '/goals': (_) => const SavingsSimulatorScreen(),
         '/health': (_) => const HealthScoreScreen(),
         '/fraud-alert': (_) => const FraudAlertScreen(),
+        '/manual-entry': (_) => const ManualEntryScreen(),
+        '/statement-upload': (_) => const StatementUploadScreen(),
       },
     );
   }

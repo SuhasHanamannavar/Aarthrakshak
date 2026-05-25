@@ -21,48 +21,48 @@ class _Option {
 
 const List<_Question> _questions = [
   _Question(
-    text: 'Monthly savings kaise manage karte hain?',
+    text: 'How do you manage your monthly savings?',
     options: [
-      _Option(text: 'SIP ya Mutual Funds mein invest karta hoon', archetype: Archetype.investor),
-      _Option(text: 'FD ya RD mein safe rakhta hoon', archetype: Archetype.saver),
-      _Option(text: 'Jo bachta hai, kuch naya kharid leta hoon', archetype: Archetype.spender),
-      _Option(text: 'Sirf basic necessities par kharach karta hoon', archetype: Archetype.minimalist),
+      _Option(text: 'I invest in SIPs or Mutual Funds', archetype: Archetype.investor),
+      _Option(text: 'I keep it safe in FDs or RDs', archetype: Archetype.saver),
+      _Option(text: 'I spend whatever is left on new purchases', archetype: Archetype.spender),
+      _Option(text: 'I only spend on basic necessities', archetype: Archetype.minimalist),
     ],
   ),
   _Question(
-    text: 'Bonus milne par kya karte hain?',
+    text: 'What do you do when you receive a commercial bonus?',
     options: [
-      _Option(text: 'Kisi ache fund mein invest kar deta hoon', archetype: Archetype.investor),
-      _Option(text: 'Emergency fund mein daal deta hoon', archetype: Archetype.saver),
-      _Option(text: 'Koi luxury item ya gadget kharid leta hoon', archetype: Archetype.spender),
-      _Option(text: 'Kisi nayi jagah ghoomne ka plan banata hoon', archetype: Archetype.adventurer),
+      _Option(text: 'I invest it in a high-performing fund', archetype: Archetype.investor),
+      _Option(text: 'I allocate it strictly to my emergency safety net', archetype: Archetype.saver),
+      _Option(text: 'I purchase a luxury item or gadget', archetype: Archetype.spender),
+      _Option(text: 'I plan an adventurous trip to a new destination', archetype: Archetype.adventurer),
     ],
   ),
   _Question(
-    text: 'EMI aur loans par aapka kya approach hai?',
+    text: 'What is your strategic approach to EMIs and loans?',
     options: [
-      _Option(text: 'Pehle save karke phir kharidna pasand karta hoon', archetype: Archetype.saver),
-      _Option(text: 'Loan nahi leta, cash mein hi kharidta hoon', archetype: Archetype.minimalist),
-      _Option(text: 'Jaroorat ho toh EMI le leta hoon', archetype: Archetype.spender),
-      _Option(text: 'Loan lekar bhi invest karta hoon agar return zyada ho', archetype: Archetype.investor),
+      _Option(text: 'I prefer to save first and buy capital later', archetype: Archetype.saver),
+      _Option(text: 'I avoid debt entirely and rely strictly on cash', archetype: Archetype.minimalist),
+      _Option(text: 'I finance purchases through EMIs whenever needed', archetype: Archetype.spender),
+      _Option(text: 'I utilize leverage to invest if returns exceed interest', archetype: Archetype.investor),
     ],
   ),
   _Question(
-    text: 'UPI aur digital payments kaise use karte hain?',
+    text: 'How do you utilize digital payment infrastructure (UPI)?',
     options: [
-      _Option(text: 'Har cheez UPI se, tracking nahi karta', archetype: Archetype.spender),
-      _Option(text: 'Budget ke andar UPI se pay karta hoon', archetype: Archetype.saver),
-      _Option(text: 'Cash preferred hai, UPI sirf jaroorat par', archetype: Archetype.minimalist),
-      _Option(text: 'Payments track karke investments plan karta hoon', archetype: Archetype.investor),
+      _Option(text: 'I transact digitally for convenience without tracking', archetype: Archetype.spender),
+      _Option(text: 'I transact strictly within my planned financial budget', archetype: Archetype.saver),
+      _Option(text: 'I prefer cash and use digital gateways minimally', archetype: Archetype.minimalist),
+      _Option(text: 'I track all digital ledger payments to plan investments', archetype: Archetype.investor),
     ],
   ),
   _Question(
-    text: 'Gold aur traditional savings par kya soch hai?',
+    text: 'What are your thoughts on Gold and physical liquid assets?',
     options: [
-      _Option(text: 'Sona traditional investment ka hissa hai', archetype: Archetype.saver),
-      _Option(text: 'Gold ETF ya SGB mein invest karta hoon', archetype: Archetype.investor),
-      _Option(text: 'Sirf minimum gold, baaki liquid rakhta hoon', archetype: Archetype.minimalist),
-      _Option(text: 'Gold se accha naye experiences par kharach karna', archetype: Archetype.adventurer),
+      _Option(text: 'Physical gold is a fundamental part of investment', archetype: Archetype.saver),
+      _Option(text: 'I prefer Sovereign Gold Bonds (SGB) and Gold ETFs', archetype: Archetype.investor),
+      _Option(text: 'I maintain minimal physical wealth and hold liquid cash', archetype: Archetype.minimalist),
+      _Option(text: 'I prefer investing in new experiences rather than metals', archetype: Archetype.adventurer),
     ],
   ),
 ];
@@ -135,7 +135,7 @@ class _QuizScreenState extends State<QuizScreen> {
           backgroundColor: const Color(0xFF141832),
           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
           title: Text(
-            'Aap Hain: ${result.name[0].toUpperCase()}${result.name.substring(1)}',
+            'Your Archetype: ${result.name[0].toUpperCase()}${result.name.substring(1)}',
             style: GoogleFonts.poppins(
               fontWeight: FontWeight.bold,
               color: const Color(0xFFFFD700),
@@ -152,7 +152,7 @@ class _QuizScreenState extends State<QuizScreen> {
                 Navigator.pushReplacementNamed(context, '/dashboard');
               },
               child: Text(
-                'Chalein Dashboard',
+                'Go to Dashboard',
                 style: GoogleFonts.poppins(color: const Color(0xFFFFD700)),
               ),
             ),
@@ -164,13 +164,13 @@ class _QuizScreenState extends State<QuizScreen> {
 
   String _explanationPrompt(Archetype archetype) {
     final names = {
-      Archetype.saver: 'Saver (Bachat karna pasand)',
-      Archetype.spender: 'Spender (Kharach karne wala)',
-      Archetype.investor: 'Investor (Nivesh karne wala)',
-      Archetype.minimalist: 'Minimalist (Sirf zaroorat ki cheezein)',
-      Archetype.adventurer: 'Adventurer (Naye experiences pasand)',
+      Archetype.saver: 'Saver (Highly risk averse, prefers secure cash reserves)',
+      Archetype.spender: 'Spender (High consumption, liquidity prioritizing)',
+      Archetype.investor: 'Investor (Yield maximizing, portfolio optimizing)',
+      Archetype.minimalist: 'Minimalist (Capital preserving, essentialist)',
+      Archetype.adventurer: 'Adventurer (Experience prioritizing consumer)',
     };
-    return 'User has been identified as a ${names[archetype]} financial personality. Explain this archetype in 3-4 lines in professional English — describe their financial habits, strengths, and how they can improve their savings. Use a friendly but professional tone.';
+    return 'User has been evaluated as a ${names[archetype]} financial personality. Detail this archetype in 3-4 professional lines. Describe strategic spending habits, financial strengths, and recommend advanced paths for optimal growth. Adopt a highly polished financial advisory tone.';
   }
 
   String _fallbackExplanation(Archetype archetype) {
@@ -228,7 +228,7 @@ class _QuizScreenState extends State<QuizScreen> {
               ),
               const SizedBox(height: 16),
               Text(
-                'Apni Bachat Ka Rakshak',
+                'Your Financial Guardian',
                 style: GoogleFonts.poppins(
                   fontSize: 18,
                   color: Colors.white,
@@ -254,7 +254,7 @@ class _QuizScreenState extends State<QuizScreen> {
                       fontWeight: FontWeight.w600,
                     ),
                   ),
-                  child: const Text('Shuru Karein'),
+                  child: const Text('Start Assessment'),
                 ),
               ),
             ],
@@ -316,7 +316,7 @@ class _QuizScreenState extends State<QuizScreen> {
                     fontWeight: FontWeight.w600,
                   ),
                 ),
-                child: Text(index == 4 ? 'Dekhte Hain Result' : 'Aage Badhein \u2192'),
+                child: Text(index == 4 ? 'View Results' : 'Next Question \u2192'),
               ),
             ),
           ],
@@ -330,7 +330,7 @@ class _QuizScreenState extends State<QuizScreen> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          'Prashna ${index + 1}/${_questions.length}',
+          'Question ${index + 1}/${_questions.length}',
           style: GoogleFonts.poppins(
             fontSize: 14,
             color: const Color(0xFF8892B0),

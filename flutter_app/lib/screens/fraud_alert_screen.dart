@@ -143,7 +143,7 @@ class _FraudAlertScreenState extends State<FraudAlertScreen>
     } catch (_) {
       try {
         final groq = await GroqService.completeJson(
-          prompt: 'Generate a JSON array of 3 fraudulent transactions. Each has: id, amount (number), merchant, category, isFraudulent (true), fraudScore (0-1), location. Make realistic Indian names.',
+          prompt: 'Generate a JSON array of 3 fraudulent transactions. Each has: id, amount (number), merchant, category, isFraudulent (true), fraudScore (0-1), location. Make realistic international merchant names.',
           systemPrompt: 'You are a financial data generator. Respond with valid JSON array only.',
         );
         if (groq != null) {
@@ -174,12 +174,12 @@ class _FraudAlertScreenState extends State<FraudAlertScreen>
           title: const Text('Card Blocked',
               style: TextStyle(color: Colors.white)),
           content: const Text(
-              'Aapka card block kar diya gaya hai. Support team se sampark karein.',
+              'Your card has been successfully blocked. Please contact the support team immediately.',
               style: TextStyle(color: _textSecondary)),
           actions: [
             TextButton(
               onPressed: () => Navigator.pop(ctx),
-              child: const Text('Theek Hai',
+              child: const Text('Acknowledge',
                   style: TextStyle(color: _gold)),
             ),
           ],
@@ -311,7 +311,7 @@ class _FraudAlertScreenState extends State<FraudAlertScreen>
         ),
         const SizedBox(height: 8),
         Text(
-          'Aapka account surakshit nahi hai!',
+          'Your account security is compromised!',
           style: GoogleFonts.poppins(fontSize: 16, color: Colors.white),
         ),
       ],
@@ -404,7 +404,7 @@ class _FraudAlertScreenState extends State<FraudAlertScreen>
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text('Karan:',
+          Text('Reason:',
               style: GoogleFonts.poppins(
                   fontSize: 14,
                   fontWeight: FontWeight.w600,
@@ -554,13 +554,13 @@ class _FraudAlertScreenState extends State<FraudAlertScreen>
           const Icon(Icons.shield, size: 64, color: Color(0xFF00C896)),
           const SizedBox(height: 16),
           Text(
-            'Koi fraud nahi mila!',
+            'No fraudulent activity detected.',
             style: GoogleFonts.poppins(
                 fontSize: 20, fontWeight: FontWeight.w600, color: Colors.white),
           ),
           const SizedBox(height: 8),
           Text(
-            'Aap surakshit hain! \uD83C\uDF89',
+            'Your account is secure. \uD83C\uDF89',
             style: GoogleFonts.poppins(fontSize: 16, color: _textSecondary),
           ),
         ],

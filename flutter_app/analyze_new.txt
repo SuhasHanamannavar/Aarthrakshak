@@ -1,0 +1,8 @@
+Analyzing flutter_app...                                        
+
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss. Try replacing the use of the deprecated member with the replacement - lib\screens\manual_entry_screen.dart:97:51 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss. Try replacing the use of the deprecated member with the replacement - lib\screens\statement_upload_screen.dart:162:43 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss. Try replacing the use of the deprecated member with the replacement - lib\screens\statement_upload_screen.dart:179:40 - deprecated_member_use
+   info - Use the null-aware marker '?' rather than a null check via an 'if'. Try using '?' - lib\services\groq_service.dart:19:9 - use_null_aware_elements
+   info - Use the null-aware marker '?' rather than a null check via an 'if'. Try using '?' - lib\services\groq_service.dart:46:9 - use_null_aware_elements
+

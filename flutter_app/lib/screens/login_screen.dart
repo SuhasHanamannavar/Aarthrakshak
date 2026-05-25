@@ -38,7 +38,7 @@ class _LoginScreenState extends State<LoginScreen> {
       final email = _emailController.text.trim();
       final password = _passwordController.text.trim();
       if (email.isEmpty || password.isEmpty) {
-        setState(() { _error = 'Email aur password daalein'; _loading = false; });
+        setState(() { _error = 'Please enter both email and password'; _loading = false; });
         return;
       }
       final supabase = Supabase.instance.client;
@@ -92,17 +92,41 @@ class _LoginScreenState extends State<LoginScreen> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Icon(Icons.shield, color: _gold, size: 64),
-                const SizedBox(height: 12),
+                Container(
+                  width: 100,
+                  height: 100,
+                  decoration: BoxDecoration(
+                    shape: BoxShape.circle,
+                    boxShadow: [
+                      BoxShadow(
+                        color: _gold.withAlpha(50),
+                        blurRadius: 20,
+                        offset: const Offset(0, 8),
+                      ),
+                    ],
+                  ),
+                  child: ClipOval(
+                    child: Image.asset(
+                      'assets/images/logo.png',
+                      fit: BoxFit.cover,
+                      errorBuilder: (context, error, stackTrace) => 
+                          const Icon(Icons.assured_workload, color: _gold, size: 64),
+                    ),
+                  ),
+                ),
+                const SizedBox(height: 16),
                 Text('Aarthrakshak',
                     style: GoogleFonts.poppins(
-                        fontSize: 28,
-                        fontWeight: FontWeight.bold,
+                        fontSize: 32,
+                        fontWeight: FontWeight.w800,
+                        letterSpacing: 1.2,
                         color: _gold)),
                 const SizedBox(height: 4),
-                Text('Aapka Financial Guardian',
+                Text('Your Financial Guardian',
                     style: GoogleFonts.poppins(
-                        fontSize: 14, color: _textSecondary)),
+                        fontSize: 15,
+                        fontWeight: FontWeight.w500,
+                        color: _textSecondary)),
                 const SizedBox(height: 40),
                 TextField(
                   controller: _emailController,

@@ -21,13 +21,12 @@ class WebSocketService {
   }
 
   void _doConnect() {
-    if (!_shouldReconnect || _reconnectAttempts >= _maxReconnectAttempts) {
-      return;
-    }
+    if (!_shouldReconnect || _reconnectAttempts >= _maxReconnectAttempts) return;
     try {
       _channel = WebSocketChannel.connect(
-        Uri.parse('ws://10.0.2.2:8080/ws'),
+        Uri.parse('wss://aarthrakshak-backend.onrender.com/ws'),
       );
+      // Immediately subscribe or wait for server implementation
       _subscription = _channel!.stream.listen(
         (data) => _streamController.add(data as String),
         onError: (_) => _onDisconnected(),

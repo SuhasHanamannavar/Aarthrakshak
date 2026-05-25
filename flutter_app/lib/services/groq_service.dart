@@ -16,7 +16,7 @@ class GroqService {
       final url = Uri.parse('$_baseUrl/ai/complete');
       final body = {
         'prompt': prompt,
-        if (systemPrompt != null) 'systemPrompt': systemPrompt,
+        'systemPrompt': ?systemPrompt,
         'model': model,
         'temperature': temperature,
         'maxTokens': maxTokens,
@@ -43,7 +43,7 @@ class GroqService {
       final url = Uri.parse('$_baseUrl/ai/complete');
       final body = {
         'prompt': prompt,
-        if (systemPrompt != null) 'systemPrompt': systemPrompt,
+        'systemPrompt': ?systemPrompt,
         'model': model,
         'temperature': 0.3,
         'maxTokens': 1024,

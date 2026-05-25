@@ -1,0 +1,161 @@
+﻿Analyzing flutter_app...                                        
+
+   info - The imported package 'google_fonts' isn't a dependency of the importing package. Try adding a dependency for 'google_fonts' in the 'pubspec.yaml' file - lib\main.dart:2:8 - depend_on_referenced_packages
+  error - Target of URI doesn't exist: 'package:google_fonts/google_fonts.dart'. Try creating the file referenced by the URI, or try using a URI for a file that does exist - lib\main.dart:2:8 - uri_does_not_exist
+  error - Undefined name 'GoogleFonts'. Try correcting the name to one that is defined, or defining the name - lib\main.dart:51:20 - undefined_identifier
+   info - The imported package 'google_fonts' isn't a dependency of the importing package. Try adding a dependency for 'google_fonts' in the 'pubspec.yaml' file - lib\screens\dashboard_screen.dart:6:8 - depend_on_referenced_packages
+  error - Target of URI doesn't exist: 'package:google_fonts/google_fonts.dart'. Try creating the file referenced by the URI, or try using a URI for a file that does exist - lib\screens\dashboard_screen.dart:6:8 - uri_does_not_exist
+  error - Undefined name 'GoogleFonts'. Try correcting the name to one that is defined, or defining the name - lib\screens\dashboard_screen.dart:92:20 - undefined_identifier
+  error - Undefined name 'GoogleFonts'. Try correcting the name to one that is defined, or defining the name - lib\screens\dashboard_screen.dart:152:18 - undefined_identifier
+  error - Undefined name 'GoogleFonts'. Try correcting the name to one that is defined, or defining the name - lib\screens\dashboard_screen.dart:189:24 - undefined_identifier
+  error - Undefined name 'GoogleFonts'. Try correcting the name to one that is defined, or defining the name - lib\screens\dashboard_screen.dart:199:20 - undefined_identifier
+   info - Don't use 'BuildContext's across async gaps. Try rewriting the code to not use the 'BuildContext', or guard the use with a 'mounted' check - lib\screens\dashboard_screen.dart:358:14 - use_build_context_synchronously
+  error - Undefined name 'GoogleFonts'. Try correcting the name to one that is defined, or defining the name - lib\screens\dashboard_screen.dart:378:59 - undefined_identifier
+  error - Undefined name 'GoogleFonts'. Try correcting the name to one that is defined, or defining the name - lib\screens\dashboard_screen.dart:379:109 - undefined_identifier
+  error - Undefined name 'GoogleFonts'. Try correcting the name to one that is defined, or defining the name - lib\screens\dashboard_screen.dart:442:22 - undefined_identifier
+  error - Undefined name 'GoogleFonts'. Try correcting the name to one that is defined, or defining the name - lib\screens\dashboard_screen.dart:460:28 - undefined_identifier
+  error - Undefined name 'GoogleFonts'. Try correcting the name to one that is defined, or defining the name - lib\screens\dashboard_screen.dart:477:26 - undefined_identifier
+  error - Undefined name 'GoogleFonts'. Try correcting the name to one that is defined, or defining the name - lib\screens\dashboard_screen.dart:512:26 - undefined_identifier
+  error - Undefined name 'GoogleFonts'. Try correcting the name to one that is defined, or defining the name - lib\screens\dashboard_screen.dart:520:22 - undefined_identifier
+  error - Undefined name 'GoogleFonts'. Try correcting the name to one that is defined, or defining the name - lib\screens\dashboard_screen.dart:527:26 - undefined_identifier
+  error - Undefined name 'GoogleFonts'. Try correcting the name to one that is defined, or defining the name - lib\screens\dashboard_screen.dart:569:24 - undefined_identifier
+  error - Undefined name 'GoogleFonts'. Try correcting the name to one that is defined, or defining the name - lib\screens\dashboard_screen.dart:578:24 - undefined_identifier
+  error - Undefined name 'GoogleFonts'. Try correcting the name to one that is defined, or defining the name - lib\screens\dashboard_screen.dart:617:30 - undefined_identifier
+  error - Undefined name 'GoogleFonts'. Try correcting the name to one that is defined, or defining the name - lib\screens\dashboard_screen.dart:620:30 - undefined_identifier
+  error - Undefined name 'GoogleFonts'. Try correcting the name to one that is defined, or defining the name - lib\screens\dashboard_screen.dart:739:30 - undefined_identifier
+  error - Undefined name 'GoogleFonts'. Try correcting the name to one that is defined, or defining the name - lib\screens\dashboard_screen.dart:839:26 - undefined_identifier
+  error - Undefined name 'GoogleFonts'. Try correcting the name to one that is defined, or defining the name - lib\screens\dashboard_screen.dart:932:24 - undefined_identifier
+  error - Undefined name 'GoogleFonts'. Try correcting the name to one that is defined, or defining the name - lib\screens\dashboard_screen.dart:936:24 - undefined_identifier
+  error - Undefined name 'GoogleFonts'. Try correcting the name to one that is defined, or defining the name - lib\screens\dashboard_screen.dart:1058:28 - undefined_identifier
+  error - Undefined name 'GoogleFonts'. Try correcting the name to one that is defined, or defining the name - lib\screens\dashboard_screen.dart:1063:28 - undefined_identifier
+  error - Undefined name 'GoogleFonts'. Try correcting the name to one that is defined, or defining the name - lib\screens\dashboard_screen.dart:1069:22 - undefined_identifier
+  error - Undefined name 'GoogleFonts'. Try correcting the name to one that is defined, or defining the name - lib\screens\dashboard_screen.dart:1193:24 - undefined_identifier
+  error - Undefined name 'GoogleFonts'. Try correcting the name to one that is defined, or defining the name - lib\screens\dashboard_screen.dart:1204:28 - undefined_identifier
+  error - Undefined name 'GoogleFonts'. Try correcting the name to one that is defined, or defining the name - lib\screens\dashboard_screen.dart:1209:28 - undefined_identifier
+  error - Undefined name 'GoogleFonts'. Try correcting the name to one that is defined, or defining the name - lib\screens\dashboard_screen.dart:1222:16 - undefined_identifier
+  error - Undefined name 'GoogleFonts'. Try correcting the name to one that is defined, or defining the name - lib\screens\dashboard_screen.dart:1240:24 - undefined_identifier
+   info - The imported package 'google_fonts' isn't a dependency of the importing package. Try adding a dependency for 'google_fonts' in the 'pubspec.yaml' file - lib\screens\fraud_alert_screen.dart:5:8 - depend_on_referenced_packages
+  error - Target of URI doesn't exist: 'package:google_fonts/google_fonts.dart'. Try creating the file referenced by the URI, or try using a URI for a file that does exist - lib\screens\fraud_alert_screen.dart:5:8 - uri_does_not_exist
+  error - Undefined name 'GoogleFonts'. Try correcting the name to one that is defined, or defining the name - lib\screens\fraud_alert_screen.dart:213:22 - undefined_identifier
+  error - Undefined name 'GoogleFonts'. Try correcting the name to one that is defined, or defining the name - lib\screens\fraud_alert_screen.dart:305:18 - undefined_identifier
+  error - Undefined name 'GoogleFonts'. Try correcting the name to one that is defined, or defining the name - lib\screens\fraud_alert_screen.dart:315:18 - undefined_identifier
+  error - Undefined name 'GoogleFonts'. Try correcting the name to one that is defined, or defining the name - lib\screens\fraud_alert_screen.dart:343:24 - undefined_identifier
+  error - Undefined name 'GoogleFonts'. Try correcting the name to one that is defined, or defining the name - lib\screens\fraud_alert_screen.dart:349:24 - undefined_identifier
+  error - Undefined name 'GoogleFonts'. Try correcting the name to one that is defined, or defining the name - lib\screens\fraud_alert_screen.dart:355:24 - undefined_identifier
+  error - Undefined name 'GoogleFonts'. Try correcting the name to one that is defined, or defining the name - lib\screens\fraud_alert_screen.dart:379:24 - undefined_identifier
+  error - Undefined name 'GoogleFonts'. Try correcting the name to one that is defined, or defining the name - lib\screens\fraud_alert_screen.dart:389:20 - undefined_identifier
+  error - Undefined name 'GoogleFonts'. Try correcting the name to one that is defined, or defining the name - lib\screens\fraud_alert_screen.dart:408:22 - undefined_identifier
+  error - Undefined name 'GoogleFonts'. Try correcting the name to one that is defined, or defining the name - lib\screens\fraud_alert_screen.dart:414:22 - undefined_identifier
+  error - Undefined name 'GoogleFonts'. Try correcting the name to one that is defined, or defining the name - lib\screens\fraud_alert_screen.dart:417:22 - undefined_identifier
+  error - Undefined name 'GoogleFonts'. Try correcting the name to one that is defined, or defining the name - lib\screens\fraud_alert_screen.dart:423:22 - undefined_identifier
+  error - Undefined name 'GoogleFonts'. Try correcting the name to one that is defined, or defining the name - lib\screens\fraud_alert_screen.dart:427:22 - undefined_identifier
+  error - Undefined name 'GoogleFonts'. Try correcting the name to one that is defined, or defining the name - lib\screens\fraud_alert_screen.dart:433:22 - undefined_identifier
+  error - Undefined name 'GoogleFonts'. Try correcting the name to one that is defined, or defining the name - lib\screens\fraud_alert_screen.dart:488:24 - undefined_identifier
+  error - Undefined name 'GoogleFonts'. Try correcting the name to one that is defined, or defining the name - lib\screens\fraud_alert_screen.dart:508:24 - undefined_identifier
+  error - Undefined name 'GoogleFonts'. Try correcting the name to one that is defined, or defining the name - lib\screens\fraud_alert_screen.dart:558:20 - undefined_identifier
+  error - Undefined name 'GoogleFonts'. Try correcting the name to one that is defined, or defining the name - lib\screens\fraud_alert_screen.dart:564:20 - undefined_identifier
+   info - The imported package 'google_fonts' isn't a dependency of the importing package. Try adding a dependency for 'google_fonts' in the 'pubspec.yaml' file - lib\screens\health_score_screen.dart:4:8 - depend_on_referenced_packages
+  error - Target of URI doesn't exist: 'package:google_fonts/google_fonts.dart'. Try creating the file referenced by the URI, or try using a URI for a file that does exist - lib\screens\health_score_screen.dart:4:8 - uri_does_not_exist
+  error - Undefined name 'GoogleFonts'. Try correcting the name to one that is defined, or defining the name - lib\screens\health_score_screen.dart:133:18 - undefined_identifier
+  error - Undefined name 'GoogleFonts'. Try correcting the name to one that is defined, or defining the name - lib\screens\health_score_screen.dart:157:28 - undefined_identifier
+  error - Undefined name 'GoogleFonts'. Try correcting the name to one that is defined, or defining the name - lib\screens\health_score_screen.dart:166:28 - undefined_identifier
+  error - Undefined name 'GoogleFonts'. Try correcting the name to one that is defined, or defining the name - lib\screens\health_score_screen.dart:179:18 - undefined_identifier
+  error - Undefined name 'GoogleFonts'. Try correcting the name to one that is defined, or defining the name - lib\screens\health_score_screen.dart:188:18 - undefined_identifier
+  error - Undefined name 'GoogleFonts'. Try correcting the name to one that is defined, or defining the name - lib\screens\health_score_screen.dart:213:22 - undefined_identifier
+  error - Undefined name 'GoogleFonts'. Try correcting the name to one that is defined, or defining the name - lib\screens\health_score_screen.dart:251:20 - undefined_identifier
+  error - Undefined name 'GoogleFonts'. Try correcting the name to one that is defined, or defining the name - lib\screens\health_score_screen.dart:260:20 - undefined_identifier
+  error - Undefined name 'GoogleFonts'. Try correcting the name to one that is defined, or defining the name - lib\screens\health_score_screen.dart:305:22 - undefined_identifier
+  error - Undefined name 'GoogleFonts'. Try correcting the name to one that is defined, or defining the name - lib\screens\health_score_screen.dart:440:20 - undefined_identifier
+  error - Undefined name 'GoogleFonts'. Try correcting the name to one that is defined, or defining the name - lib\screens\health_score_screen.dart:480:28 - undefined_identifier
+  error - Undefined name 'GoogleFonts'. Try correcting the name to one that is defined, or defining the name - lib\screens\health_score_screen.dart:486:28 - undefined_identifier
+  error - Undefined name 'GoogleFonts'. Try correcting the name to one that is defined, or defining the name - lib\screens\health_score_screen.dart:499:22 - undefined_identifier
+  error - Undefined name 'GoogleFonts'. Try correcting the name to one that is defined, or defining the name - lib\screens\health_score_screen.dart:524:28 - undefined_identifier
+  error - Undefined name 'GoogleFonts'. Try correcting the name to one that is defined, or defining the name - lib\screens\health_score_screen.dart:542:30 - undefined_identifier
+  error - Undefined name 'GoogleFonts'. Try correcting the name to one that is defined, or defining the name - lib\screens\health_score_screen.dart:553:28 - undefined_identifier
+   info - The imported package 'google_fonts' isn't a dependency of the importing package. Try adding a dependency for 'google_fonts' in the 'pubspec.yaml' file - lib\screens\login_screen.dart:2:8 - depend_on_referenced_packages
+  error - Target of URI doesn't exist: 'package:google_fonts/google_fonts.dart'. Try creating the file referenced by the URI, or try using a URI for a file that does exist - lib\screens\login_screen.dart:2:8 - uri_does_not_exist
+  error - Undefined name 'GoogleFonts'. Try correcting the name to one that is defined, or defining the name - lib\screens\login_screen.dart:119:28 - undefined_identifier
+  error - Undefined name 'GoogleFonts'. Try correcting the name to one that is defined, or defining the name - lib\screens\login_screen.dart:126:28 - undefined_identifier
+  error - Undefined name 'GoogleFonts'. Try correcting the name to one that is defined, or defining the name - lib\screens\login_screen.dart:133:26 - undefined_identifier
+  error - Undefined name 'GoogleFonts'. Try correcting the name to one that is defined, or defining the name - lib\screens\login_screen.dart:136:33 - undefined_identifier
+  error - Undefined name 'GoogleFonts'. Try correcting the name to one that is defined, or defining the name - lib\screens\login_screen.dart:150:26 - undefined_identifier
+  error - Undefined name 'GoogleFonts'. Try correcting the name to one that is defined, or defining the name - lib\screens\login_screen.dart:154:33 - undefined_identifier
+  error - Undefined name 'GoogleFonts'. Try correcting the name to one that is defined, or defining the name - lib\screens\login_screen.dart:167:30 - undefined_identifier
+  error - Undefined name 'GoogleFonts'. Try correcting the name to one that is defined, or defining the name - lib\screens\login_screen.dart:184:34 - undefined_identifier
+  error - Undefined name 'GoogleFonts'. Try correcting the name to one that is defined, or defining the name - lib\screens\login_screen.dart:203:34 - undefined_identifier
+  error - Undefined name 'GoogleFonts'. Try correcting the name to one that is defined, or defining the name - lib\screens\login_screen.dart:220:32 - undefined_identifier
+  error - Undefined name 'GoogleFonts'. Try correcting the name to one that is defined, or defining the name - lib\screens\login_screen.dart:236:28 - undefined_identifier
+   info - The imported package 'google_fonts' isn't a dependency of the importing package. Try adding a dependency for 'google_fonts' in the 'pubspec.yaml' file - lib\screens\manual_entry_screen.dart:2:8 - depend_on_referenced_packages
+  error - Target of URI doesn't exist: 'package:google_fonts/google_fonts.dart'. Try creating the file referenced by the URI, or try using a URI for a file that does exist - lib\screens\manual_entry_screen.dart:2:8 - uri_does_not_exist
+  error - Undefined name 'GoogleFonts'. Try correcting the name to one that is defined, or defining the name - lib\screens\manual_entry_screen.dart:56:74 - undefined_identifier
+  error - Undefined name 'GoogleFonts'. Try correcting the name to one that is defined, or defining the name - lib\screens\manual_entry_screen.dart:69:59 - undefined_identifier
+  error - Undefined name 'GoogleFonts'. Try correcting the name to one that is defined, or defining the name - lib\screens\manual_entry_screen.dart:84:16 - undefined_identifier
+  error - Undefined name 'GoogleFonts'. Try correcting the name to one that is defined, or defining the name - lib\screens\manual_entry_screen.dart:87:23 - undefined_identifier
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss. Try replacing the use of the deprecated member with the replacement - lib\screens\manual_entry_screen.dart:97:51 - deprecated_member_use
+  error - Undefined name 'GoogleFonts'. Try correcting the name to one that is defined, or defining the name - lib\screens\manual_entry_screen.dart:122:18 - undefined_identifier
+  error - Undefined name 'GoogleFonts'. Try correcting the name to one that is defined, or defining the name - lib\screens\manual_entry_screen.dart:139:26 - undefined_identifier
+  error - Undefined name 'GoogleFonts'. Try correcting the name to one that is defined, or defining the name - lib\screens\manual_entry_screen.dart:145:26 - undefined_identifier
+  error - Undefined name 'GoogleFonts'. Try correcting the name to one that is defined, or defining the name - lib\screens\manual_entry_screen.dart:174:36 - undefined_identifier
+   info - The imported package 'google_fonts' isn't a dependency of the importing package. Try adding a dependency for 'google_fonts' in the 'pubspec.yaml' file - lib\screens\quiz_screen.dart:2:8 - depend_on_referenced_packages
+  error - Target of URI doesn't exist: 'package:google_fonts/google_fonts.dart'. Try creating the file referenced by the URI, or try using a URI for a file that does exist - lib\screens\quiz_screen.dart:2:8 - uri_does_not_exist
+  error - Undefined name 'GoogleFonts'. Try correcting the name to one that is defined, or defining the name - lib\screens\quiz_screen.dart:139:20 - undefined_identifier
+  error - Undefined name 'GoogleFonts'. Try correcting the name to one that is defined, or defining the name - lib\screens\quiz_screen.dart:146:20 - undefined_identifier
+  error - Undefined name 'GoogleFonts'. Try correcting the name to one that is defined, or defining the name - lib\screens\quiz_screen.dart:156:24 - undefined_identifier
+  error - Undefined name 'GoogleFonts'. Try correcting the name to one that is defined, or defining the name - lib\screens\quiz_screen.dart:223:24 - undefined_identifier
+  error - Undefined name 'GoogleFonts'. Try correcting the name to one that is defined, or defining the name - lib\screens\quiz_screen.dart:232:24 - undefined_identifier
+  error - Undefined name 'GoogleFonts'. Try correcting the name to one that is defined, or defining the name - lib\screens\quiz_screen.dart:252:32 - undefined_identifier
+  error - Undefined name 'GoogleFonts'. Try correcting the name to one that is defined, or defining the name - lib\screens\quiz_screen.dart:282:22 - undefined_identifier
+  error - Undefined name 'GoogleFonts'. Try correcting the name to one that is defined, or defining the name - lib\screens\quiz_screen.dart:314:30 - undefined_identifier
+  error - Undefined name 'GoogleFonts'. Try correcting the name to one that is defined, or defining the name - lib\screens\quiz_screen.dart:334:18 - undefined_identifier
+  error - Undefined name 'GoogleFonts'. Try correcting the name to one that is defined, or defining the name - lib\screens\quiz_screen.dart:387:24 - undefined_identifier
+   info - The imported package 'google_fonts' isn't a dependency of the importing package. Try adding a dependency for 'google_fonts' in the 'pubspec.yaml' file - lib\screens\savings_simulator_screen.dart:6:8 - depend_on_referenced_packages
+  error - Target of URI doesn't exist: 'package:google_fonts/google_fonts.dart'. Try creating the file referenced by the URI, or try using a URI for a file that does exist - lib\screens\savings_simulator_screen.dart:6:8 - uri_does_not_exist
+  error - Undefined name 'GoogleFonts'. Try correcting the name to one that is defined, or defining the name - lib\screens\savings_simulator_screen.dart:266:18 - undefined_identifier
+  error - Undefined name 'GoogleFonts'. Try correcting the name to one that is defined, or defining the name - lib\screens\savings_simulator_screen.dart:303:22 - undefined_identifier
+  error - Undefined name 'GoogleFonts'. Try correcting the name to one that is defined, or defining the name - lib\screens\savings_simulator_screen.dart:309:19 - undefined_identifier
+  error - Undefined name 'GoogleFonts'. Try correcting the name to one that is defined, or defining the name - lib\screens\savings_simulator_screen.dart:399:24 - undefined_identifier
+  error - Undefined name 'GoogleFonts'. Try correcting the name to one that is defined, or defining the name - lib\screens\savings_simulator_screen.dart:402:24 - undefined_identifier
+  error - Undefined name 'GoogleFonts'. Try correcting the name to one that is defined, or defining the name - lib\screens\savings_simulator_screen.dart:426:24 - undefined_identifier
+  error - Undefined name 'GoogleFonts'. Try correcting the name to one that is defined, or defining the name - lib\screens\savings_simulator_screen.dart:453:22 - undefined_identifier
+  error - Undefined name 'GoogleFonts'. Try correcting the name to one that is defined, or defining the name - lib\screens\savings_simulator_screen.dart:585:28 - undefined_identifier
+  error - Undefined name 'GoogleFonts'. Try correcting the name to one that is defined, or defining the name - lib\screens\savings_simulator_screen.dart:618:20 - undefined_identifier
+  error - Undefined name 'GoogleFonts'. Try correcting the name to one that is defined, or defining the name - lib\screens\savings_simulator_screen.dart:625:18 - undefined_identifier
+  error - Undefined name 'GoogleFonts'. Try correcting the name to one that is defined, or defining the name - lib\screens\savings_simulator_screen.dart:641:26 - undefined_identifier
+  error - Undefined name 'GoogleFonts'. Try correcting the name to one that is defined, or defining the name - lib\screens\savings_simulator_screen.dart:657:20 - undefined_identifier
+  error - Undefined name 'GoogleFonts'. Try correcting the name to one that is defined, or defining the name - lib\screens\savings_simulator_screen.dart:663:20 - undefined_identifier
+  error - Undefined name 'GoogleFonts'. Try correcting the name to one that is defined, or defining the name - lib\screens\savings_simulator_screen.dart:674:20 - undefined_identifier
+  error - Undefined name 'GoogleFonts'. Try correcting the name to one that is defined, or defining the name - lib\screens\savings_simulator_screen.dart:704:24 - undefined_identifier
+   info - The imported package 'google_fonts' isn't a dependency of the importing package. Try adding a dependency for 'google_fonts' in the 'pubspec.yaml' file - lib\screens\statement_upload_screen.dart:3:8 - depend_on_referenced_packages
+  error - Target of URI doesn't exist: 'package:google_fonts/google_fonts.dart'. Try creating the file referenced by the URI, or try using a URI for a file that does exist - lib\screens\statement_upload_screen.dart:3:8 - uri_does_not_exist
+  error - Undefined name 'GoogleFonts'. Try correcting the name to one that is defined, or defining the name - lib\screens\statement_upload_screen.dart:65:109 - undefined_identifier
+  error - Undefined name 'GoogleFonts'. Try correcting the name to one that is defined, or defining the name - lib\screens\statement_upload_screen.dart:82:124 - undefined_identifier
+  error - Undefined name 'GoogleFonts'. Try correcting the name to one that is defined, or defining the name - lib\screens\statement_upload_screen.dart:92:105 - undefined_identifier
+  error - Undefined name 'GoogleFonts'. Try correcting the name to one that is defined, or defining the name - lib\screens\statement_upload_screen.dart:107:48 - undefined_identifier
+  error - Undefined name 'GoogleFonts'. Try correcting the name to one that is defined, or defining the name - lib\screens\statement_upload_screen.dart:130:88 - undefined_identifier
+  error - Undefined name 'GoogleFonts'. Try correcting the name to one that is defined, or defining the name - lib\screens\statement_upload_screen.dart:145:67 - undefined_identifier
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss. Try replacing the use of the deprecated member with the replacement - lib\screens\statement_upload_screen.dart:162:43 - deprecated_member_use
+  error - Undefined name 'GoogleFonts'. Try correcting the name to one that is defined, or defining the name - lib\screens\statement_upload_screen.dart:171:20 - undefined_identifier
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss. Try replacing the use of the deprecated member with the replacement - lib\screens\statement_upload_screen.dart:179:40 - deprecated_member_use
+  error - Undefined name 'GoogleFonts'. Try correcting the name to one that is defined, or defining the name - lib\screens\statement_upload_screen.dart:192:59 - undefined_identifier
+  error - Undefined name 'GoogleFonts'. Try correcting the name to one that is defined, or defining the name - lib\screens\statement_upload_screen.dart:221:28 - undefined_identifier
+  error - Undefined name 'GoogleFonts'. Try correcting the name to one that is defined, or defining the name - lib\screens\statement_upload_screen.dart:223:26 - undefined_identifier
+  error - Undefined name 'GoogleFonts'. Try correcting the name to one that is defined, or defining the name - lib\screens\statement_upload_screen.dart:246:62 - undefined_identifier
+  error - Undefined name 'GoogleFonts'. Try correcting the name to one that is defined, or defining the name - lib\screens\statement_upload_screen.dart:247:60 - undefined_identifier
+  error - Undefined name 'GoogleFonts'. Try correcting the name to one that is defined, or defining the name - lib\screens\statement_upload_screen.dart:251:77 - undefined_identifier
+   info - The imported package 'google_fonts' isn't a dependency of the importing package. Try adding a dependency for 'google_fonts' in the 'pubspec.yaml' file - lib\screens\transaction_screen.dart:4:8 - depend_on_referenced_packages
+  error - Target of URI doesn't exist: 'package:google_fonts/google_fonts.dart'. Try creating the file referenced by the URI, or try using a URI for a file that does exist - lib\screens\transaction_screen.dart:4:8 - uri_does_not_exist
+  error - Undefined name 'GoogleFonts'. Try correcting the name to one that is defined, or defining the name - lib\screens\transaction_screen.dart:178:28 - undefined_identifier
+  error - Undefined name 'GoogleFonts'. Try correcting the name to one that is defined, or defining the name - lib\screens\transaction_screen.dart:243:18 - undefined_identifier
+  error - Undefined name 'GoogleFonts'. Try correcting the name to one that is defined, or defining the name - lib\screens\transaction_screen.dart:259:28 - undefined_identifier
+  error - Undefined name 'GoogleFonts'. Try correcting the name to one that is defined, or defining the name - lib\screens\transaction_screen.dart:291:30 - undefined_identifier
+  error - Undefined name 'GoogleFonts'. Try correcting the name to one that is defined, or defining the name - lib\screens\transaction_screen.dart:310:20 - undefined_identifier
+  error - Undefined name 'GoogleFonts'. Try correcting the name to one that is defined, or defining the name - lib\screens\transaction_screen.dart:403:30 - undefined_identifier
+  error - Undefined name 'GoogleFonts'. Try correcting the name to one that is defined, or defining the name - lib\screens\transaction_screen.dart:409:30 - undefined_identifier
+  error - Undefined name 'GoogleFonts'. Try correcting the name to one that is defined, or defining the name - lib\screens\transaction_screen.dart:413:30 - undefined_identifier
+  error - Undefined name 'GoogleFonts'. Try correcting the name to one that is defined, or defining the name - lib\screens\transaction_screen.dart:432:32 - undefined_identifier
+  error - Undefined name 'GoogleFonts'. Try correcting the name to one that is defined, or defining the name - lib\screens\transaction_screen.dart:451:32 - undefined_identifier
+   info - The imported package 'http' isn't a dependency of the importing package. Try adding a dependency for 'http' in the 'pubspec.yaml' file - lib\services\api_service.dart:2:8 - depend_on_referenced_packages
+   info - The imported package 'http' isn't a dependency of the importing package. Try adding a dependency for 'http' in the 'pubspec.yaml' file - lib\services\groq_service.dart:2:8 - depend_on_referenced_packages
+   info - Use the null-aware marker '?' rather than a null check via an 'if'. Try using '?' - lib\services\groq_service.dart:19:9 - use_null_aware_elements
+   info - Use the null-aware marker '?' rather than a null check via an 'if'. Try using '?' - lib\services\groq_service.dart:46:9 - use_null_aware_elements
+

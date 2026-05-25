@@ -8,7 +8,6 @@ import 'package:provider/provider.dart';
 import '../models/archetype.dart';
 import '../state/app_state.dart';
 import '../services/api_service.dart';
-import '../services/groq_service.dart';
 import '../services/websocket_service.dart';
 
 const Color _bg = Color(0xFF0A0E27);
@@ -149,7 +148,7 @@ class _RiskOMeterState extends State<_RiskOMeter>
         ),
         const SizedBox(height: 8),
         Text(
-          'Aapka Risk Level: High',
+          'Your Risk Level: High',
           style: GoogleFonts.poppins(
               fontSize: 14,
               color: _adventurerAccent,
@@ -241,10 +240,10 @@ class DashboardScreen extends StatefulWidget {
 
 class _DashboardScreenState extends State<DashboardScreen> {
   bool _loading = true;
-  double _balance = 124500;
-  double _monthlySpend = 18200;
-  double _monthlySavings = 12000;
-  int _healthScore = 72;
+  double _balance = 0;
+  double _monthlySpend = 0;
+  double _monthlySavings = 0;
+  int _healthScore = 0;
   // ignore: unused_field
   List _transactions = [];
   String _groqTagline = '';
@@ -276,20 +275,34 @@ class _DashboardScreenState extends State<DashboardScreen> {
 
   Future<void> _loadDashboard() async {
     try {
-      final res = await ApiService.get('/dashboard/summary').timeout(
+      final res = await ApiService.get('/dashboard').timeout(
+        const Duration(seconds: 8),
+      );
+      if (res.statusCode == 200) {
+        final data = jsonDecode(res.body) as Map<String, dynamic>;
+        _balance = (data['balance'] as num?)?.toDouble() ?? _balance;
+        _monthlySpend = (data['monthlySpend'] as num?)?.toDouble() ?? _monthlySpend;
+        _monthlySavings = (data['monthlySavings'] as num?)?.toDouble() ?? _monthlySavings;
+        _transactions = (data['transactions'] as List?) ?? [];
+        if (mounted) context.read<AppState>().setDashboardData(data);
+      }
+    } catch (e) {
+      if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(content: Text('Using offline cache. Data sync failed: $e')));
+      }
+    }
+
+    try {
+      final res = await ApiService.get('/health-score').timeout(
         const Duration(seconds: 5),
       );
       if (res.statusCode == 200) {
         final data = jsonDecode(res.body) as Map<String, dynamic>;
-        _balance = (data['balance'] as num).toDouble();
-        _monthlySpend = (data['monthlySpend'] as num).toDouble();
-        _monthlySavings = (data['monthlySavings'] as num).toDouble();
-        _healthScore = (data['healthScore'] as num).toInt();
-        _transactions = (data['transactions'] as List?) ?? [];
+        _healthScore = (data['score'] as num?)?.toInt() ?? _healthScore;
       }
-    } catch (_) {
-      // use mock defaults
-    }
+    } catch (_) {}
+
     if (mounted) {
       setState(() => _loading = false);
       _loadGroqContent();
@@ -299,61 +312,83 @@ class _DashboardScreenState extends State<DashboardScreen> {
   Future<void> _loadGroqContent() async {
     final archetype = context.read<AppState>().currentArchetype;
     if (archetype == null) return;
-    final groqTagline = await GroqService.complete(
-      prompt: 'I am a $archetype in personal finance. Give me a short inspiring tagline in English that reflects my financial personality. 1 line only.',
-      systemPrompt: 'You are a motivational financial coach. Keep it concise and professional.',
-      model: 'gemma2-9b-it',
-      temperature: 0.7,
-      maxTokens: 80,
-    );
-    final groqTips = await GroqService.completeJson(
-      prompt: 'Generate 3 financial tips in English for someone with archetype $archetype, balance $_balance, spend $_monthlySpend. Respond with JSON array: [{"tip":"..."}].',
-      systemPrompt: 'You are a professional financial advisor. Use clear, professional English.',
-    );
-    String tip1 = '', tip2 = '', tip3 = '';
-    if (groqTips != null) {
-      try {
-        final List<dynamic> tips = jsonDecode(groqTips) as List<dynamic>;
-        if (tips.isNotEmpty) tip1 = tips[0]['tip'] as String? ?? '';
-        if (tips.length > 1) tip2 = tips[1]['tip'] as String? ?? '';
-        if (tips.length > 2) tip3 = tips[2]['tip'] as String? ?? '';
-      } catch (_) {}
-    }
-    final groqOpps = await GroqService.completeJson(
-      prompt: 'Generate 3 investment/financial opportunities in English for a $archetype. Respond with JSON array: [{"title":"...","subtitle":"..."}].',
-      systemPrompt: 'You are a professional financial advisor. Use clear, professional English.',
-    );
-    List<_OpportunityData> opps = [];
-    if (groqOpps != null) {
-      try {
-        final List<dynamic> list = jsonDecode(groqOpps) as List<dynamic>;
-        for (final item in list) {
-          opps.add(_OpportunityData(
-            title: item['title'] as String? ?? '',
-            subtitle: item['subtitle'] as String? ?? '',
-          ));
+    
+    try {
+      // Calling real backend Groq endpoint as specified!
+      final res = await ApiService.get('/ai/tips?archetype=${archetype.name}').timeout(
+        const Duration(seconds: 8),
+      );
+      if (res.statusCode == 200) {
+        final data = jsonDecode(res.body) as Map<String, dynamic>;
+        final tips = data['tips'] as List<dynamic>? ?? [];
+        final opps = data['opportunities'] as List<dynamic>? ?? [];
+        
+        if (mounted) {
+          setState(() {
+            _groqTagline = data['tagline'] as String? ?? _groqTagline;
+            if (tips.isNotEmpty) _groqTip1 = tips[0] as String;
+            if (tips.length > 1) _groqTip2 = tips[1] as String;
+            if (tips.length > 2) _groqTip3 = tips[2] as String;
+            
+            _groqOpportunities = opps.map((e) => _OpportunityData(
+              title: e['title'] as String? ?? '',
+              subtitle: e['subtitle'] as String? ?? ''
+            )).toList();
+          });
         }
-      } catch (_) {}
-    }
-    if (mounted) {
-      setState(() {
-        _groqTagline = groqTagline ?? '';
-        _groqTip1 = tip1;
-        _groqTip2 = tip2;
-        _groqTip3 = tip3;
-        _groqOpportunities = opps;
-      });
+        return;
+      }
+    } catch (e) {
+      // Fallback behavior if backend fails
+      debugPrint("AI Tips API failed, defaulting to local cache.");
     }
   }
 
   void _initWebSocket() {
     try {
-      _wsService.connect();
-      _wsSub = _wsService.transactionStream.listen((_) {});
+      _wsService.connect(); // Already upgraded to WSS in websocket_service.dart
+      _wsSub = _wsService.transactionStream.listen((data) {
+         try {
+           final decoded = jsonDecode(data);
+             if (!mounted) return;
+             if (decoded['type'] == 'fraud_alert') {
+                // On fraud alert -> show red overlay 
+                _showLiveFraudOverlay(decoded);
+             } else {
+               // Handle live incoming transactions
+               context.read<AppState>().addTransaction(decoded);
+             }
+         } catch (_) {}
+      });
       _wsConnected = true;
     } catch (_) {
       _wsConnected = false;
     }
+  }
+
+  bool _isFraudAlert = false;
+
+  void _showLiveFraudOverlay(Map<String, dynamic> alert) {
+    if (!mounted) return;
+    setState(() => _isFraudAlert = true);
+    Future.delayed(const Duration(seconds: 10), () {
+      if (mounted) setState(() => _isFraudAlert = false);
+    });
+
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        backgroundColor: Colors.redAccent.shade700,
+        duration: const Duration(seconds: 10),
+        content: Column(
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text('\u26A0\uFE0F LIVE FRAUD ALERT!', style: GoogleFonts.poppins(fontWeight: FontWeight.bold, fontSize: 16, color: Colors.white)),
+            Text(alert['explanation'] ?? 'We detected unusually high risk on a recent transaction.', style: GoogleFonts.poppins(color: Colors.white)),
+          ],
+        ),
+      )
+    );
   }
 
   @override
@@ -377,7 +412,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
       );
     }
     return Scaffold(
-      backgroundColor: _bg,
+      backgroundColor: _isFraudAlert ? Colors.red.shade900 : _bg,
       appBar: _buildAppBar(archetype),
       body: SingleChildScrollView(
         padding: const EdgeInsets.fromLTRB(20, 8, 20, 100),
@@ -387,6 +422,8 @@ class _DashboardScreenState extends State<DashboardScreen> {
             if (archetype != null) _buildGreetingCard(archetype),
             const SizedBox(height: 20),
             _buildStatCards(),
+            const SizedBox(height: 16),
+            _buildActionButtons(),
             const SizedBox(height: 24),
             if (archetype != null) _buildArchetypeBody(archetype),
           ],
@@ -397,13 +434,63 @@ class _DashboardScreenState extends State<DashboardScreen> {
     );
   }
 
+  Widget _buildActionButtons() {
+    return Row(
+      children: [
+        Expanded(
+          child: ElevatedButton.icon(
+            onPressed: () => Navigator.pushNamed(context, '/statement-upload'),
+            icon: const Icon(Icons.upload_file),
+            label: Text('Upload Statement', style: GoogleFonts.poppins(fontSize: 12)),
+            style: ElevatedButton.styleFrom(
+              backgroundColor: _cardBg,
+              foregroundColor: _gold,
+              padding: const EdgeInsets.symmetric(vertical: 12),
+              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(14)),
+              side: BorderSide(color: _gold.withValues(alpha: 0.3)),
+            ),
+          ),
+        ),
+        const SizedBox(width: 12),
+        Expanded(
+          child: ElevatedButton.icon(
+            onPressed: () => Navigator.pushNamed(context, '/manual-entry'),
+            icon: const Icon(Icons.edit_note),
+            label: Text('Manual Entry', style: GoogleFonts.poppins(fontSize: 12)),
+            style: ElevatedButton.styleFrom(
+              backgroundColor: _cardBg,
+              foregroundColor: _gold,
+              padding: const EdgeInsets.symmetric(vertical: 12),
+              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(14)),
+              side: BorderSide(color: _gold.withValues(alpha: 0.3)),
+            ),
+          ),
+        ),
+      ],
+    );
+  }
+
   PreferredSizeWidget _buildAppBar(Archetype? archetype) {
     return AppBar(
       backgroundColor: _bg,
       elevation: 0,
-      title: Text('Aarthrakshak',
-          style: GoogleFonts.poppins(
-              fontSize: 20, fontWeight: FontWeight.bold, color: _gold)),
+      title: Row(
+        children: [
+          ClipOval(
+            child: Image.asset(
+              'assets/images/logo.png',
+              width: 32,
+              height: 32,
+              errorBuilder: (context, error, stackTrace) =>
+                  const Icon(Icons.assured_workload, color: _gold, size: 28),
+            ),
+          ),
+          const SizedBox(width: 12),
+          Text('Aarthrakshak',
+              style: GoogleFonts.poppins(
+                  fontSize: 22, fontWeight: FontWeight.w800, letterSpacing: 0.5, color: _gold)),
+        ],
+      ),
       actions: [
         if (_wsConnected)
           Padding(
@@ -469,7 +556,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                 child: Icon(_iconFor(archetype), color: accent, size: 24),
               ),
               const SizedBox(width: 14),
-              Text('Namaste, ${_archetypeLabel(archetype)}!',
+              Text('Welcome, ${_archetypeLabel(archetype)}!',
                   style: GoogleFonts.poppins(
                       fontSize: 20,
                       fontWeight: FontWeight.bold,
