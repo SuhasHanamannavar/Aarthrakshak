@@ -50,8 +50,43 @@ public class TransactionService {
             Optional<Transaction> opt = transactionRepository.findById(id);
             if (opt.isPresent()) {
                 Transaction t = opt.get();
-                boolean isFraud = random.nextDouble() > 0.3;
-                double score = 0.3 + random.nextDouble() * 0.7;
+                boolean isFraud = false;
+                double score = 0.1;
+
+                if (groqService.hasKeys()) {
+                    try {
+                        String prompt = String.format(
+                            "Analyze this financial transaction for fraud risk: Merchant='%s', Amount='%.2f', Location='%s', Category='%s'. " +
+                            "Assume any large transfer or unknown international merchant has higher risk. " +
+                            "Respond strictly with JSON containing only two fields: {\"isFraud\":true/false,\"score\":0.0-1.0}",
+                            t.getMerchantName(), t.getAmount(), t.getMerchantLocation(), (t.getCategory() != null ? t.getCategory().name() : "Other")
+                        );
+                        String json = groqService.completeJson(
+                            "You are a fraud detection AI. Assess financial risk and output valid JSON only.",
+                            prompt, "llama3-8b-8192"
+                        );
+                        if (json != null) {
+                            com.fasterxml.jackson.databind.ObjectMapper m = new com.fasterxml.jackson.databind.ObjectMapper();
+                            Map<String, Object> result = m.readValue(json,
+                                    new com.fasterxml.jackson.core.type.TypeReference<Map<String, Object>>() {});
+                            if (result.containsKey("isFraud")) {
+                                Object f = result.get("isFraud");
+                                if (f instanceof Boolean) isFraud = (Boolean) f;
+                                else if (f instanceof String) isFraud = Boolean.parseBoolean((String) f);
+                            }
+                            if (result.containsKey("score")) {
+                                score = ((Number) result.get("score")).doubleValue();
+                            }
+                        }
+                    } catch (Exception e) {
+                        isFraud = random.nextDouble() > 0.3;
+                        score = 0.3 + random.nextDouble() * 0.7;
+                    }
+                } else {
+                    isFraud = random.nextDouble() > 0.3;
+                    score = 0.3 + random.nextDouble() * 0.7;
+                }
+
                 t.setFraudulent(isFraud);
                 java.math.BigDecimal bd = java.math.BigDecimal.valueOf(score * 100);
                 t.setFraudScore(bd);

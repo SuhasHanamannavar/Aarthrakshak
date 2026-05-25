@@ -43,11 +43,6 @@ groq:
     key9: ${GROQ_API_KEY_9:}
     key10: ${GROQ_API_KEY_10:}
 
-ml:
-  service:
-    url: ${ML_SERVICE_URL:http://localhost:5000}
-    fraud-threshold: ${ML_FRAUD_THRESHOLD:70}
-    timeout-ms: ${ML_TIMEOUT_MS:5000}
 
 geolocation:
   allowed-countries: IN,US,GB,CA,AU,SG,AE,DE,FR,JP

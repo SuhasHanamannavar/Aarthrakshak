@@ -3,7 +3,7 @@ import 'package:http/http.dart' as http;
 import 'api_service.dart';
 
 class GroqService {
-  static const String _baseUrl = 'http://10.0.2.2:8080/api';
+  static const String _baseUrl = 'https://aarthrakshak-backend.onrender.com/api';
 
   static Future<String?> complete({
     required String prompt,
