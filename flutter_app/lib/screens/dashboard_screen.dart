@@ -10,10 +10,10 @@ import '../state/app_state.dart';
 import '../services/api_service.dart';
 import '../services/websocket_service.dart';
 
-const Color _bg = Color(0xFF0A0E27);
-const Color _cardBg = Color(0xFF141832);
-const Color _gold = Color(0xFFFFD700);
-const Color _textSecondary = Color(0xFF8892B0);
+const Color _bg = Color(0xFF09090B);
+const Color _cardBg = Color(0xFF18181B);
+const Color _gold = Color(0xFFD4AF37);
+const Color _textSecondary = Color(0xFFA1A1AA);
 const Color _saverAccent = Color(0xFF00C896);
 const Color _spenderAccent = Color(0xFFFF6B6B);
 const Color _investorAccent = Color(0xFF00E5FF);
