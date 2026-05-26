@@ -8,7 +8,7 @@ const Color _bg = Color(0xFF09090B);
 const Color _cardBg = Color(0xFF18181B);
 const Color _gold = Color(0xFFD4AF37);
 const Color _textSecondary = Color(0xFFA1A1AA);
-const Color _accent = Color(0xFF00E5FF);
+const Color _accent = Color(0xFFD4AF37);
 const Color _spenderAccent = Color(0xFFFF6B6B);
 
 class StatementUploadScreen extends StatefulWidget {

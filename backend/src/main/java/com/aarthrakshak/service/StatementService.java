@@ -47,7 +47,7 @@ public class StatementService {
 
         String userPrompt = "Bank Statement Text:\n" + text;
 
-        String jsonResponse = groqService.completeJson(systemPrompt, userPrompt, "mixtral-8x7b-32768");
+        String jsonResponse = groqService.completeJson(systemPrompt, userPrompt, "llama3-8b-8192");
         
         if (jsonResponse == null || jsonResponse.isEmpty()) {
             throw new Exception("Failed to retrieve parsed JSON from Groq AI.");
@@ -60,12 +60,13 @@ public class StatementService {
         }
     }
 
-    public void saveTransactions(List<Map<String, Object>> transactionsData) {
+    public void saveTransactions(List<Map<String, Object>> transactionsData, UUID userId) {
         if (transactionsData == null || transactionsData.isEmpty()) return;
 
         List<Transaction> entities = new ArrayList<>();
         for (Map<String, Object> txData : transactionsData) {
             Transaction t = new Transaction();
+            t.setUserId(userId);
             t.setMerchantName(txData.get("merchant") != null ? txData.get("merchant").toString() : "Unknown");
             
             Object amountObj = txData.get("amount");

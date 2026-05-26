@@ -42,12 +42,12 @@ class AarthrakshakApp extends StatelessWidget {
       title: 'Aarthrakshak',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        scaffoldBackgroundColor: const Color(0xFF0A0E27),
+        scaffoldBackgroundColor: const Color(0xFF09090B),
         colorScheme: ColorScheme.dark(
-          primary: const Color(0xFFFFD700),
-          surface: const Color(0xFF141832),
+          primary: const Color(0xFFD4AF37),
+          surface: const Color(0xFF18181B),
         ),
-        cardColor: const Color(0xFF141832),
+        cardColor: const Color(0xFF18181B),
         textTheme: GoogleFonts.poppinsTextTheme(
           ThemeData.dark().textTheme,
         ),

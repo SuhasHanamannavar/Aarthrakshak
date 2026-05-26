@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../services/api_service.dart';
 
-const Color _bg = Color(0xFF0A0E27);
-const Color _cardBg = Color(0xFF141832);
-const Color _gold = Color(0xFFFFD700);
-const Color _textSecondary = Color(0xFF8892B0);
-const Color _accent = Color(0xFF00E5FF);
+const Color _bg = Color(0xFF09090B);
+const Color _cardBg = Color(0xFF18181B);
+const Color _gold = Color(0xFFD4AF37);
+const Color _textSecondary = Color(0xFFA1A1AA);
+const Color _accent = Color(0xFFD4AF37);
 
 class ManualEntryScreen extends StatefulWidget {
   const ManualEntryScreen({super.key});

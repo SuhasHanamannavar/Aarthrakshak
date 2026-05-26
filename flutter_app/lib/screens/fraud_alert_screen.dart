@@ -9,10 +9,10 @@ import '../services/groq_service.dart';
 import 'transaction_screen.dart';
 
 const Color _redAlert = Color(0xFF1A0000);
-const Color _cardBg = Color(0xFF141832);
-const Color _gold = Color(0xFFFFD700);
+const Color _cardBg = Color(0xFF18181B);
+const Color _gold = Color(0xFFD4AF37);
 const Color _spenderAccent = Color(0xFFFF6B6B);
-const Color _textSecondary = Color(0xFF8892B0);
+const Color _textSecondary = Color(0xFFA1A1AA);
 
 const Map<String, dynamic> _mockAnalysis = {
   'isFraudulent': true,
@@ -496,9 +496,9 @@ class _FraudAlertScreenState extends State<FraudAlertScreen>
 
   Widget _buildHistoryView() {
     return Scaffold(
-      backgroundColor: const Color(0xFF0A0E27),
+      backgroundColor: const Color(0xFF09090B),
       appBar: AppBar(
-        backgroundColor: const Color(0xFF0A0E27),
+        backgroundColor: const Color(0xFF09090B),
         elevation: 0,
         title: Row(
           children: [

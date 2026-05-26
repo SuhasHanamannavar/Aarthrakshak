@@ -14,11 +14,11 @@ const Color _bg = Color(0xFF09090B);
 const Color _cardBg = Color(0xFF18181B);
 const Color _gold = Color(0xFFD4AF37);
 const Color _textSecondary = Color(0xFFA1A1AA);
-const Color _saverAccent = Color(0xFF00C896);
-const Color _spenderAccent = Color(0xFFFF6B6B);
-const Color _investorAccent = Color(0xFF00E5FF);
-const Color _minimalistAccent = Color(0xFFA78BFA);
-const Color _adventurerAccent = Color(0xFFFBBF24);
+const Color _saverAccent = Color(0xFFC0C0C0);      // Silver
+const Color _spenderAccent = Color(0xFFCD7F32);     // Bronze
+const Color _investorAccent = Color(0xFFD4AF37);    // Gold
+const Color _minimalistAccent = Color(0xFFE5E4E2);  // Platinum
+const Color _adventurerAccent = Color(0xFFB8860B);  // Dark Gold
 
 String _formatIndianNumber(dynamic value) {
   final n = value is int ? value : (value as double).round();
@@ -112,7 +112,7 @@ class _RiskOMeterState extends State<_RiskOMeter>
                           height: 20,
                           decoration: BoxDecoration(
                             gradient: const LinearGradient(
-                              colors: [Colors.green, Color(0xFFFFEB3B), Colors.red],
+                              colors: [Color(0xFFE5E4E2), Color(0xFFD4AF37), Color(0xFFB8860B)],
                             ),
                             borderRadius: BorderRadius.circular(10),
                           ),
@@ -501,12 +501,12 @@ class _DashboardScreenState extends State<DashboardScreen> {
                 Container(
                     width: 8,
                     height: 8,
-                    decoration: const BoxDecoration(
-                        color: Colors.green, shape: BoxShape.circle)),
+                    decoration: BoxDecoration(
+                        color: _gold, shape: BoxShape.circle)),
                 const SizedBox(width: 4),
                 Text('Live',
                     style: GoogleFonts.poppins(
-                        fontSize: 11, color: Colors.green)),
+                        fontSize: 11, color: _gold)),
               ],
             ),
           ),
@@ -569,7 +569,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
           const SizedBox(height: 12),
           Row(
             children: [
-              Icon(Icons.favorite, color: _healthScore > 60 ? Colors.green : _spenderAccent, size: 16),
+              Icon(Icons.favorite, color: _healthScore > 60 ? _gold : _spenderAccent, size: 16),
               const SizedBox(width: 6),
               Text('Health Score: $_healthScore/100',
                   style: GoogleFonts.poppins(

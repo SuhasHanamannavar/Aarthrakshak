@@ -7,6 +7,9 @@ import org.springframework.web.multipart.MultipartFile;
 import java.util.Map;
 import java.util.List;
 
+import org.springframework.security.core.Authentication;
+import java.util.UUID;
+
 @RestController
 @RequestMapping("/api/v1/statements")
 public class StatementController {
@@ -29,11 +32,16 @@ public class StatementController {
     }
 
     @PostMapping("/confirm")
-    public ResponseEntity<?> confirmStatement(@RequestBody Map<String, List<Map<String, Object>>> payload) {
+    public ResponseEntity<?> confirmStatement(@RequestBody Map<String, List<Map<String, Object>>> payload, Authentication authentication) {
         try {
-            statementService.saveTransactions(payload.get("transactions"));
+            if (authentication == null || authentication.getName() == null) {
+                return ResponseEntity.status(401).body(Map.of("error", "Unauthorized"));
+            }
+            UUID userId = UUID.fromString(authentication.getName());
+            statementService.saveTransactions(payload.get("transactions"), userId);
             return ResponseEntity.ok(Map.of("message", "Transactions successfully synced to Supabase"));
         } catch (Exception e) {
+            e.printStackTrace();
             return ResponseEntity.internalServerError().body(Map.of("error", e.getMessage()));
         }
     }

@@ -104,19 +104,19 @@ class _LoginScreenState extends State<LoginScreen> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Container(
-                    width: 110,
-                    height: 110,
+                    width: 140,
+                    height: 140,
                     decoration: BoxDecoration(
                       shape: BoxShape.circle,
                       boxShadow: [
                         BoxShadow(
-                          color: _gold.withValues(alpha: 0.25),
-                          blurRadius: 40,
+                          color: _gold.withValues(alpha: 0.3),
+                          blurRadius: 50,
                           spreadRadius: -10,
                           offset: const Offset(0, 10),
                         ),
                       ],
-                      border: Border.all(color: _gold.withValues(alpha: 0.5), width: 1.5),
+                      border: Border.all(color: _gold.withValues(alpha: 0.6), width: 2.0),
                     ),
                     child: ClipOval(
                       child: Image.asset(

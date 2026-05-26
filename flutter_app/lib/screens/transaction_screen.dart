@@ -6,11 +6,11 @@ import '../models/transaction.dart';
 import '../services/api_service.dart';
 import '../services/websocket_service.dart';
 
-const Color _bg = Color(0xFF0A0E27);
-const Color _cardBg = Color(0xFF141832);
-const Color _gold = Color(0xFFFFD700);
+const Color _bg = Color(0xFF09090B);
+const Color _cardBg = Color(0xFF18181B);
+const Color _gold = Color(0xFFD4AF37);
 const Color _spenderAccent = Color(0xFFFF6B6B);
-const Color _textSecondary = Color(0xFF8892B0);
+const Color _textSecondary = Color(0xFFA1A1AA);
 
 final List<Transaction> _mockTransactions = [
   Transaction(
@@ -252,12 +252,12 @@ class _TransactionScreenState extends State<TransactionScreen> {
                 Container(
                     width: 8,
                     height: 8,
-                    decoration: const BoxDecoration(
-                        color: Colors.green, shape: BoxShape.circle)),
+                    decoration: BoxDecoration(
+                        color: _gold, shape: BoxShape.circle)),
                 const SizedBox(width: 4),
                 Text('Live',
                     style: GoogleFonts.poppins(
-                        fontSize: 11, color: Colors.green)),
+                        fontSize: 11, color: _gold)),
               ],
             ),
           ),
