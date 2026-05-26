@@ -50,7 +50,6 @@ public class SupabaseJwtFilter extends OncePerRequestFilter {
         try {
             Algorithm algorithm = Algorithm.HMAC256(supabaseProperties.getJwtSecret());
             DecodedJWT decoded = JWT.require(algorithm)
-                    .withIssuer(supabaseProperties.getUrl())
                     .build()
                     .verify(token);
 

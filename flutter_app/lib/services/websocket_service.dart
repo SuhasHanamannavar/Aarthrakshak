@@ -24,7 +24,7 @@ class WebSocketService {
     if (!_shouldReconnect || _reconnectAttempts >= _maxReconnectAttempts) return;
     try {
       _channel = WebSocketChannel.connect(
-        Uri.parse('wss://aarthrakshak-backend.onrender.com/ws'),
+        Uri.parse('wss://aarthrakshak-2.onrender.com/ws'),
       );
       // Immediately subscribe or wait for server implementation
       _subscription = _channel!.stream.listen(

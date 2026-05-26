@@ -2,7 +2,7 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 
 // Preserved your actual backend deployment URL instead of the generic 'financeapp' placeholder!
-const String baseUrl = 'https://aarthrakshak-backend.onrender.com/api/v1';
+const String baseUrl = 'https://aarthrakshak-2.onrender.com/api/v1';
 
 class ApiService {
   static String _jwtToken = '';
