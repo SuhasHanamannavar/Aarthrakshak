@@ -57,7 +57,7 @@ class _StatementUploadScreenState extends State<StatementUploadScreen> {
           _parsedSummary = data['summary'] as Map<String, dynamic>? ?? {};
         });
       } else {
-        throw Exception('Server rejected the PDF with status \${streamedRes.statusCode}');
+        throw Exception('Server rejected the PDF with status ${streamedRes.statusCode}: $res');
       }
     } catch (e) {
       if (mounted) {

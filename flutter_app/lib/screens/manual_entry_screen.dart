@@ -59,7 +59,7 @@ class _ManualEntryScreenState extends State<ManualEntryScreen> {
           Navigator.pushReplacementNamed(context, '/dashboard');
         }
       } else {
-        throw Exception('Failed to save data. Payload returned status \${res.statusCode}');
+        throw Exception('Failed to save data. Payload returned status ${res.statusCode}');
       }
     } catch (e) {
       if (mounted) {

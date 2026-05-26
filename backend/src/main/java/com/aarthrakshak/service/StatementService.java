@@ -11,8 +11,9 @@ import com.fasterxml.jackson.core.type.TypeReference;
 
 import java.io.InputStream;
 import java.math.BigDecimal;
-import java.time.LocalDateTime;
+import java.time.OffsetDateTime;
 import java.util.*;
+import com.aarthrakshak.model.enums.TransactionCategory;
 
 @Service
 public class StatementService {
@@ -27,7 +28,7 @@ public class StatementService {
     }
 
     public Map<String, Object> processBankStatement(MultipartFile file) throws Exception {
-        String text = extractTextFromPdf(file.getInputStream());
+        String text = extractTextFromPdf(file.getBytes());
         if (text.length() > 6000) {
             text = text.substring(0, 6000); // Truncate to avoid token limits for demo
         }
@@ -80,14 +81,14 @@ public class StatementService {
                 t.setAmount(BigDecimal.ZERO);
             }
 
-            String catString = txData.get("category") != null ? txData.get("category").toString().toUpperCase() : "OTHER";
+            String catString = txData.get("category") != null ? txData.get("category").toString().toLowerCase() : "other";
             try {
-                t.setCategory(Transaction.TransactionCategory.valueOf(catString));
+                t.setCategory(TransactionCategory.valueOf(catString));
             } catch (Exception e) {
-                t.setCategory(Transaction.TransactionCategory.OTHER);
+                t.setCategory(TransactionCategory.other);
             }
             
-            t.setTransactionDate(LocalDateTime.now().minusDays(new Random().nextInt(30)));
+            t.setTransactionDate(OffsetDateTime.now().minusDays(new Random().nextInt(30)));
             t.setMerchantLocation("Online");
             t.setFraudulent(false);
             t.setFraudScore(BigDecimal.ZERO);
@@ -97,8 +98,8 @@ public class StatementService {
         transactionRepository.saveAll(entities);
     }
 
-    private String extractTextFromPdf(InputStream is) throws Exception {
-        try (PDDocument document = PDDocument.load(is)) {
+    private String extractTextFromPdf(byte[] bytes) throws Exception {
+        try (PDDocument document = org.apache.pdfbox.Loader.loadPDF(bytes)) {
             PDFTextStripper stripper = new PDFTextStripper();
             return stripper.getText(document);
         }

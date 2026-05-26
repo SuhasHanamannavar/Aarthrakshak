@@ -13,35 +13,5 @@ If no such version exists, report the issue to the plugin. If necessary, here is
 an issue against a plugin: https://docs.flutter.dev/release/breaking-changes/migrate-to-built-in-kotlin/for-app-developers#report-incompatible-kotlin-gradle-plugin-usage-to-plugin-authors
 
 If you are a plugin author, please migrate your plugin to Built-in Kotlin using this guide: https://docs.flutter.dev/release/breaking-changes/migrate-to-built-in-kotlin/for-plugin-authors
-
-FAILURE: Build failed with an exception.
-
-* What went wrong:
-Execution failed for task ':file_picker:checkDebugAarMetadata'.
-> A failure occurred while executing com.android.build.gradle.internal.tasks.CheckAarMetadataWorkAction
-   > An issue was found when checking AAR metadata:
-
-       1.  Dependency ':flutter_plugin_android_lifecycle' requires libraries and applications that
-           depend on it to compile against version 36 or later of the
-           Android APIs.
-
-           :file_picker is currently compiled against android-34.
-
-           Recommended action: Update this project to use a newer compileSdk
-           of at least 36, for example 36.
-
-           Note that updating a library or application's compileSdk (which
-           allows newer APIs to be used) can be done separately from updating
-           targetSdk (which opts the app in to new runtime behavior) and
-           minSdk (which determines which devices the app can be installed
-           on).
-
-* Try:
-> Run with --stacktrace option to get the stack trace.
-> Run with --info or --debug option to get more log output.
-> Run with --scan to generate a Build Scan (Powered by Develocity).
-> Get more help at https://help.gradle.org.
-
-BUILD FAILED in 57s
-Running Gradle task 'assembleDebug'...                             58.3s
-Gradle task assembleDebug failed with exit code 1
+Terminate batch job (Y/N)? 
+^C
