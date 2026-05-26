@@ -47,3 +47,4 @@ groq:
 geolocation:
   allowed-countries: IN,US,GB,CA,AU,SG,AE,DE,FR,JP
   suspicious-isps: vpn,proxy,tor,hosting,datacenter
+
