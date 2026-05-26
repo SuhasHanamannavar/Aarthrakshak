@@ -48,10 +48,16 @@ public class SupabaseJwtFilter extends OncePerRequestFilter {
 
         String token = authHeader.substring(7);
         try {
-            Algorithm algorithm = Algorithm.HMAC256(supabaseProperties.getJwtSecret());
-            DecodedJWT decoded = JWT.require(algorithm)
-                    .build()
-                    .verify(token);
+            DecodedJWT decoded = null;
+            try {
+                byte[] decodedKey = java.util.Base64.getDecoder().decode(supabaseProperties.getJwtSecret());
+                Algorithm algorithmBase64 = Algorithm.HMAC256(decodedKey);
+                decoded = JWT.require(algorithmBase64).build().verify(token);
+            } catch (Exception e1) {
+                // If it fails (either base64 decoding fails, or signature is invalid), fallback to raw string
+                Algorithm algorithmRaw = Algorithm.HMAC256(supabaseProperties.getJwtSecret());
+                decoded = JWT.require(algorithmRaw).build().verify(token);
+            }
 
             String userId = decoded.getSubject();
             UsernamePasswordAuthenticationToken auth =
